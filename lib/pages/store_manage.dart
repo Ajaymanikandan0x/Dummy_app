@@ -8,13 +8,16 @@ class StoreManage extends StatelessWidget {
     return Scaffold(
         appBar: AppBar(
           title: const Text('Manage Store'),
+          centerTitle: true,
           backgroundColor: Colors.blueGrey,
         ),
         body: Padding(
           padding: const EdgeInsets.all(10),
           child: GridView(
             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2, crossAxisSpacing: 8.0, mainAxisSpacing: 8.0),
+                crossAxisCount: 2,
+                crossAxisSpacing: 10.0,
+                mainAxisSpacing: 10.0),
             children: [
               cards(
                   img: 'assets/img/speeker.jpeg',
@@ -48,30 +51,34 @@ class StoreManage extends StatelessWidget {
         ));
   }
 
-  Widget cards({required String img, required String details}) => Card(
-        elevation: 8.0,
-        child: Padding(
-          padding: const EdgeInsets.all(7),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              SizedBox(
-                width: 60,
-                height: 50,
-                child: Image.asset(
-                  img,
-                  fit: BoxFit.cover,
+  Widget cards({required String img, required String details}) => SizedBox(
+        height: 80,
+        width: 80,
+        child: Card(
+          elevation: 8.0,
+          child: Padding(
+            padding: const EdgeInsets.all(5),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                SizedBox(
+                  width: 60,
+                  height: 70,
+                  child: Image.asset(
+                    img,
+                    fit: BoxFit.cover,
+                  ),
                 ),
-              ),
-              const SizedBox(height: 10),
-              Text(
-                details,
-                style: const TextStyle(
-                  fontSize: 20,
-                ),
-              )
-            ],
+                const SizedBox(height: 10),
+                Text(
+                  details,
+                  style: const TextStyle(
+                    fontSize: 20,
+                  ),
+                )
+              ],
+            ),
           ),
         ),
       );
